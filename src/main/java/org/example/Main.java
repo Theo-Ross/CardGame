@@ -17,6 +17,23 @@ public class Main {
             scanner.nextLine();
             cardGame.setup();
             cardGame.dealCards();
+
+            System.out.println("Please select difficulty level");
+            System.out.println("Easy / Medium / Hard / Impossible");
+            String difficulty = scanner.nextLine();
+            if (difficulty.equalsIgnoreCase("easy")){
+                cardGame.setTimer( 4000);
+            }
+            if (difficulty.equalsIgnoreCase("medium")){
+                cardGame.setTimer( 3000);
+            }
+            if (difficulty.equalsIgnoreCase("hard")){
+                cardGame.setTimer( 2000);
+            }
+            if (difficulty.equalsIgnoreCase("impossible")){
+                cardGame.setTimer( 1000);
+            }
+
             System.out.println("Please select the number of players");
             System.out.println("1 / 2");
 
@@ -35,9 +52,6 @@ public class Main {
                     twoPlayerSnap.play();
                     gameModeSelected = true;
                 }
-//                else if (selection == ){
-//                    System.out.println("Please enter valid input");
-//                }
                 else {
                     System.out.println("Please enter valid input");
                 }

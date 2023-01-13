@@ -40,9 +40,13 @@ public class CardGame {
 
 
 
+    long timer =  60000;
 
+    public long getTimer() {
+        return timer;
+    }
 
-
-
-
+    public void setTimer(long timer) {
+        this.timer = timer;
+    }
 }

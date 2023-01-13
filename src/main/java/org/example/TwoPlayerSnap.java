@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class TwoPlayerSnap extends CardGame {
 
     Scanner scanner = new Scanner(System.in);
+    CardGame cardGame = new CardGame();
 
     public void play() {
 
@@ -33,7 +34,7 @@ public class TwoPlayerSnap extends CardGame {
                 long endCount = System.currentTimeMillis();
                 long playerOneTime = endCount - startCount;
                 System.out.println(playerOneTime);
-                if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime < 2000) {
+                if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
                     System.out.println("SNAP!");
                     System.out.println(" ");
                     System.out.println("Player 1 wins!");
@@ -42,22 +43,23 @@ public class TwoPlayerSnap extends CardGame {
                     System.out.println("Scores on the doors : ");
                     System.out.println("Player one card count: " + player1Cards.size());
                     System.out.println("Player two card count: " + player2Cards.size());
+
                 }
-                if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime < 2000) {
+                if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
                     System.out.println("Wrong word ... you need to be more accurate typing!");
                     System.out.println(" ");
                     System.out.println("Chance for player 2 to win!");
                     player2Steal = true;
 
                 }
-                if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime > 2000) {
+                if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
                     System.out.println("Too slow .. you need to speed up");
                     System.out.println(" ");
                     System.out.println("Chance for player 2 to win!");
                     player2Steal = true;
 
                 }
-                if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime > 2000) {
+                if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
                     System.out.println("Not even close ...");
                     System.out.println(" ");
                     System.out.println("Chance for player 2 to win!");
@@ -70,7 +72,7 @@ public class TwoPlayerSnap extends CardGame {
                     endCount = System.currentTimeMillis();
                     long playerTwoTime = endCount - startCount;
                     System.out.println(playerTwoTime);
-                    if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < 2000) {
+                    if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
                         System.out.println("SNAP!");
                         System.out.println(" ");
                         System.out.println("Player 2 wins!");
@@ -80,15 +82,15 @@ public class TwoPlayerSnap extends CardGame {
                         System.out.println("Player one card count: " + player1Cards.size());
                         System.out.println("Player two card count: " + player2Cards.size());
                     }
-                    if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < 2000) {
+                    if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
                         System.out.println("Wrong word ... you both need to work on your typing!");
                         System.out.println(" ");
                     }
-                    if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > 2000) {
+                    if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
                         System.out.println("Too Slow ... pair of sloths");
                         System.out.println(" ");
                     }
-                    if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > 2000) {
+                    if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
                         System.out.println("Not even close ... I give up ....");
                         System.out.println(" ");
                         System.out.println("Back to the game");
@@ -108,7 +110,7 @@ public class TwoPlayerSnap extends CardGame {
                 long endCount = System.currentTimeMillis();
                 long playerTwoTime = endCount - startCount;
                 System.out.println(playerTwoTime);
-                if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < 2000) {
+                if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
                     System.out.println("SNAP!");
                     System.out.println(" ");
                     System.out.println("Player 2 wins!");
@@ -118,21 +120,21 @@ public class TwoPlayerSnap extends CardGame {
                     System.out.println("Player one card count: " + player1Cards.size());
                     System.out.println("Player two card count: " + player2Cards.size());
                 }
-                if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < 2000) {
+                if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
                     System.out.println("Wrong word ... you need to be more accurate typing!");
                     System.out.println(" ");
                     System.out.println("Chance for player 1 to win!");
                     player1Steal = true;
 
                 }
-                if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > 2000) {
+                if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
                     System.out.println("Too slow .. you need to speed up");
                     System.out.println(" ");
                     System.out.println("Chance for player 1 to win!");
                     player1Steal = true;
 
                 }
-                if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > 2000) {
+                if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
                     System.out.println("Not even close ...");
                     System.out.println(" ");
                     System.out.println("Chance for player 1 to win!");
@@ -145,7 +147,7 @@ public class TwoPlayerSnap extends CardGame {
                     endCount = System.currentTimeMillis();
                     long playerOneTime = endCount - startCount;
                     System.out.println(playerOneTime);
-                    if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime < 2000) {
+                    if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
                         System.out.println("SNAP!");
                         System.out.println(" ");
                         System.out.println("Player 1 wins!");
@@ -155,15 +157,15 @@ public class TwoPlayerSnap extends CardGame {
                         System.out.println("Player one card count: " + player1Cards.size());
                         System.out.println("Player two card count: " + player2Cards.size());
                     }
-                    if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime < 2000) {
+                    if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
                         System.out.println("Wrong word ... you both need to work on your typing!");
                         System.out.println(" ");
                     }
-                    if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime > 2000) {
+                    if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
                         System.out.println("Too Slow ... pair of sloths");
                         System.out.println(" ");
                     }
-                    if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime > 2000) {
+                    if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
                         System.out.println("Not even close ... I give up ....");
                         System.out.println(" ");
                         System.out.println("Back to the game");

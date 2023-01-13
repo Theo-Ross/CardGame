@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Snap extends CardGame {
 
     Scanner scanner = new Scanner(System.in);
-
+    CardGame cardGame = new CardGame();
     Random RANDOM = new Random();
 
     public void play() {
@@ -30,7 +30,7 @@ public class Snap extends CardGame {
                 scanner.nextLine();
                 long endCount = System.currentTimeMillis();
                 long userTime = endCount - startCount;
-                long computerTime = RANDOM.nextInt(3000);
+                long computerTime = RANDOM.nextInt( (int) cardGame.getTimer() );
                 System.out.println(computerTime);
                 System.out.println(userTime);
                 if (userTime < computerTime) {
@@ -39,6 +39,7 @@ public class Snap extends CardGame {
                     System.out.println("Player 1 wins!");
                     player1Cards.addAll(winnings);
                     winnings.removeAll(winnings);
+
                 }
                 if (computerTime < userTime) {
                     System.out.println("SNAP!");
@@ -46,10 +47,16 @@ public class Snap extends CardGame {
                     System.out.println("Computer wins!");
                     player2Cards.addAll(winnings);
                     winnings.removeAll(winnings);
+
                 }
                 if (userTime == computerTime) {
                     System.out.println("This is a draw ... the odds of this happening are lower than 0.25% .... crazy!");
                 }
+
+
+                System.out.println("Scores on the doors : ");
+                System.out.println("Player one card count: " + player1Cards.size());
+                System.out.println("Player two card count: " + player2Cards.size());
             }
 
 
@@ -96,10 +103,6 @@ public class Snap extends CardGame {
                     System.out.println("This is a draw ... the odds of this happening are lower than 0.25% .... crazy!");
                 }
             }
-
-
-//            System.out.println("Player one card count: " + player1Cards.size());
-//            System.out.println("Player two card count: " + player2Cards.size());
 
 
             if (player2Cards.size() == 0 & player1Cards.size() == 0) {
