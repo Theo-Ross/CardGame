@@ -7,7 +7,7 @@
 //
 //        Scanner scanner = new Scanner(System.in);
 //
-//        public void play() {
+//        public void playTwoPlayer() {
 //
 //
 //            ArrayList<Card> winnings = new ArrayList<>(52);
@@ -26,6 +26,8 @@
 //                    System.out.println("Player 2's go");
 //                    scanner.nextLine();
 //                    System.out.println("Player 2's card is the " + player2Card.getSymbol() + " of " + player2Card.getSuit());
+//                    counter ++;
+//                    System.out.println(counter);
 //                } else {
 //                    System.out.println("Player 2's go");
 //                    scanner.nextLine();
