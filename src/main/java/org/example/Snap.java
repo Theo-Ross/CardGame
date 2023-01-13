@@ -22,9 +22,6 @@ public class Snap extends CardGame {
             Card player1Card = player1Cards.remove(0);
             Card player2Card = player2Cards.remove(0);
 
-            System.out.println(previousCardValue);
-
-
             System.out.println("Player 1's go");
             scanner.nextLine();
             System.out.println("Player 1's card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());

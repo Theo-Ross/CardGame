@@ -24,11 +24,7 @@ public class CardGame {
                 deckOfCards.add(new Card(suits[i], symbols[j], j + 1));
             }
         }
-
-
     }
-
-
 
     public static void dealCards() {
         Collections.shuffle(deckOfCards);
