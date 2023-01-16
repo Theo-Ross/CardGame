@@ -14,7 +14,16 @@ public enum Phrases {
     STEAL_WRONG_SLOW("Too Slow ... pair of sloths"),
     STEAL_WRONG_BOTH("Not even close ... I give up ...."),
 
-    COMPUTER_DRAW("This is a draw ... the odds of this happening are crazy ... crazy!")
+    COMPUTER_DRAW("This is a draw ... the odds of this happening are crazy ... crazy!"),
+
+INPUT_INVALID("Please enter valid input"),
+
+    PLAY_AGAIN("Would you like to play again? Y/N"),
+    THANKS("Ok, thank you for playing"),
+
+    ENTER("Welcome to Snap: press Enter to begin"),
+
+
     ;
 
 

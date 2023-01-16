@@ -13,7 +13,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (playing) {
-            System.out.println("Welcome to Snap: press Enter to begin");
+            System.out.println(Phrases.ENTER.getPhrases());
             scanner.nextLine();
             cardGame.setup();
             cardGame.dealCards();
@@ -53,17 +53,17 @@ public class Main {
                     gameModeSelected = true;
                 }
                 else {
-                    System.out.println("Please enter valid input");
+                    System.out.println(Phrases.INPUT_INVALID.getPhrases());
                 }
             }
 
-            System.out.println("Would you like to play again? Y/N");
+            System.out.println(Phrases.PLAY_AGAIN.getPhrases());
             if (scanner.nextLine().equals("N")) {
                 playing = false;
             }
 
 
-            System.out.println("Ok, thank you for playing");
+            System.out.println(Phrases.THANKS.getPhrases());
 
 
         }
