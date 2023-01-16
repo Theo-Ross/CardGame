@@ -40,7 +40,7 @@ public class CardGame {
 
 
 
-    long timer =  60000;
+    long timer =  6000;
 
     public long getTimer() {
         return timer;

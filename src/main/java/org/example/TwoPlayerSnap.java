@@ -16,14 +16,23 @@ public class TwoPlayerSnap extends CardGame {
 
         int previousCardValue = 0;
 
+        String playerOneName = "player one";
+        String playerTwoName = "player two";
+
+        System.out.println(Phrases.SELECT_NAME.getPhrases() + playerOneName);
+        playerOneName = scanner.nextLine();
+
+        System.out.println(Phrases.SELECT_NAME.getPhrases() + playerTwoName);
+        playerTwoName = scanner.nextLine();
+
         while (player1Cards.size() > 0 && player2Cards.size() > 0) {
 
             Card player1Card = player1Cards.remove(0);
             Card player2Card = player2Cards.remove(0);
 
-            System.out.println("Player 1's go");
+            System.out.println(playerOneName + Phrases.TURN.getPhrases());
             scanner.nextLine();
-            System.out.println("Player 1's card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());
+            System.out.println(playerOneName +  "'s card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());
             System.out.println(" ");
             winnings.add(player1Card);
 
@@ -37,32 +46,32 @@ public class TwoPlayerSnap extends CardGame {
                 if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
                     System.out.println("SNAP!");
                     System.out.println(" ");
-                    System.out.println("Player 1 wins!");
+                    System.out.println(playerOneName + " wins!");
                     player1Cards.addAll(winnings);
                     winnings.removeAll(winnings);
                     System.out.println("Scores on the doors : ");
-                    System.out.println("Player one card count: " + player1Cards.size());
-                    System.out.println("Player two card count: " + player2Cards.size());
+                    System.out.println(playerOneName + " card count: " + player1Cards.size());
+                    System.out.println(playerTwoName + " card count: " + player2Cards.size());
 
                 }
                 if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
-                    System.out.println("Wrong word ... you need to be more accurate typing!");
+                    System.out.println(Phrases.WRONG_TYPING.getPhrases());
                     System.out.println(" ");
-                    System.out.println("Chance for player 2 to win!");
+                    System.out.println("Chance for " + playerTwoName + " to win!");
                     player2Steal = true;
 
                 }
                 if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
-                    System.out.println("Too slow .. you need to speed up");
+                    System.out.println(Phrases.WRONG_SLOW.getPhrases());
                     System.out.println(" ");
-                    System.out.println("Chance for player 2 to win!");
+                    System.out.println("Chance for " + playerTwoName + " to win!");
                     player2Steal = true;
 
                 }
                 if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
-                    System.out.println("Not even close ...");
+                    System.out.println(Phrases.WRONG_BOTH.getPhrases());
                     System.out.println(" ");
-                    System.out.println("Chance for player 2 to win!");
+                    System.out.println("Chance for " + playerTwoName + " to win!");
                     player2Steal = true;
                 }
 
@@ -75,7 +84,7 @@ public class TwoPlayerSnap extends CardGame {
                     if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
                         System.out.println("SNAP!");
                         System.out.println(" ");
-                        System.out.println("Player 2 wins!");
+                        System.out.println(playerTwoName + " wins!");
                         player2Cards.addAll(winnings);
                         winnings.removeAll(winnings);
                         System.out.println("Scores on the doors : ");
@@ -83,24 +92,24 @@ public class TwoPlayerSnap extends CardGame {
                         System.out.println("Player two card count: " + player2Cards.size());
                     }
                     if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
-                        System.out.println("Wrong word ... you both need to work on your typing!");
+                        System.out.println(Phrases.STEAL_WRONG_TYPING.getPhrases());
                         System.out.println(" ");
                     }
                     if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
-                        System.out.println("Too Slow ... pair of sloths");
+                        System.out.println(Phrases.STEAL_WRONG_SLOW.getPhrases());
                         System.out.println(" ");
                     }
                     if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
-                        System.out.println("Not even close ... I give up ....");
+                        System.out.println(Phrases.STEAL_WRONG_BOTH.getPhrases());
                         System.out.println(" ");
                         System.out.println("Back to the game");
                     }
                 }}
 
 
-            System.out.println("Player 2's go");
+            System.out.println(playerTwoName + " go");
             scanner.nextLine();
-            System.out.println("Player 2's card is the " + player2Card.getSymbol() + " of " + player2Card.getSuit());
+            System.out.println(playerTwoName + "'s card is the " + player2Card.getSymbol() + " of " + player2Card.getSuit());
             winnings.add(player2Card);
 
             if (player2Card.getValue() == player1Card.getValue()) {
@@ -113,7 +122,7 @@ public class TwoPlayerSnap extends CardGame {
                 if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
                     System.out.println("SNAP!");
                     System.out.println(" ");
-                    System.out.println("Player 2 wins!");
+                    System.out.println(playerTwoName + " wins!");
                     player2Cards.addAll(winnings);
                     winnings.removeAll(winnings);
                     System.out.println("Scores on the doors : ");
@@ -121,23 +130,23 @@ public class TwoPlayerSnap extends CardGame {
                     System.out.println("Player two card count: " + player2Cards.size());
                 }
                 if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime < cardGame.getTimer()) {
-                    System.out.println("Wrong word ... you need to be more accurate typing!");
+                    System.out.println(Phrases.WRONG_TYPING.getPhrases());
                     System.out.println(" ");
-                    System.out.println("Chance for player 1 to win!");
+                    System.out.println("Chance for " + playerOneName + " to win!");
                     player1Steal = true;
 
                 }
                 if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
-                    System.out.println("Too slow .. you need to speed up");
+                    System.out.println(Phrases.WRONG_SLOW.getPhrases());
                     System.out.println(" ");
-                    System.out.println("Chance for player 1 to win!");
+                    System.out.println("Chance for " + playerOneName + " to win!");
                     player1Steal = true;
 
                 }
                 if (!playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
-                    System.out.println("Not even close ...");
+                    System.out.println(Phrases.WRONG_BOTH.getPhrases());
                     System.out.println(" ");
-                    System.out.println("Chance for player 1 to win!");
+                    System.out.println("Chance for " + playerOneName + " to win!");
                     player1Steal = true;
                 }
 
@@ -150,7 +159,7 @@ public class TwoPlayerSnap extends CardGame {
                     if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
                         System.out.println("SNAP!");
                         System.out.println(" ");
-                        System.out.println("Player 1 wins!");
+                        System.out.println(playerOneName + " wins!");
                         player1Cards.addAll(winnings);
                         winnings.removeAll(winnings);
                         System.out.println("Scores on the doors : ");
@@ -158,15 +167,15 @@ public class TwoPlayerSnap extends CardGame {
                         System.out.println("Player two card count: " + player2Cards.size());
                     }
                     if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime < cardGame.getTimer()) {
-                        System.out.println("Wrong word ... you both need to work on your typing!");
+                        System.out.println(Phrases.STEAL_WRONG_TYPING.getPhrases());
                         System.out.println(" ");
                     }
                     if (playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
-                        System.out.println("Too Slow ... pair of sloths");
+                        System.out.println(Phrases.STEAL_WRONG_SLOW.getPhrases());
                         System.out.println(" ");
                     }
                     if (!playerOneInput.equalsIgnoreCase("snap") && playerOneTime > cardGame.getTimer()) {
-                        System.out.println("Not even close ... I give up ....");
+                        System.out.println(Phrases.STEAL_WRONG_BOTH.getPhrases());
                         System.out.println(" ");
                         System.out.println("Back to the game");
                     }
@@ -179,9 +188,9 @@ public class TwoPlayerSnap extends CardGame {
                 System.out.println("It's a draw");
 
             } else if (player2Cards.size() == 0) {
-                System.out.println("Congratulations Player 1 you are the winner");
+                System.out.println("Congratulations " + playerOneName + " you are the winner");
             } else if (player1Cards.size() == 0) {
-                System.out.println("Congratulations Player 2 you are the winner");
+                System.out.println("Congratulations " + playerTwoName + " you are the winner");
             }
 
 

@@ -12,19 +12,23 @@ public class Snap extends CardGame {
 
     public void play() {
 
+        String playerOneName = "user";
 
         ArrayList<Card> winnings = new ArrayList<>(52);
 
         int previousCardValue = 0;
+
+        System.out.println(Phrases.SELECT_NAME.getPhrases() + playerOneName);
+        playerOneName = scanner.nextLine();
 
         while (player1Cards.size() > 0 && player2Cards.size() > 0) {
 
             Card player1Card = player1Cards.remove(0);
             Card player2Card = player2Cards.remove(0);
 
-            System.out.println("Player 1's go");
+            System.out.println(playerOneName + "'s go");
             scanner.nextLine();
-            System.out.println("Player 1's card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());
+            System.out.println(playerOneName+"'s card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());
             if (previousCardValue == player1Card.getValue()) {
                 long startCount = System.currentTimeMillis();
                 scanner.nextLine();
@@ -36,7 +40,7 @@ public class Snap extends CardGame {
                 if (userTime < computerTime) {
                     System.out.println("SNAP!");
                     System.out.println(" ");
-                    System.out.println("Player 1 wins!");
+                    System.out.println(playerOneName + " wins!");
                     player1Cards.addAll(winnings);
                     winnings.removeAll(winnings);
 
@@ -50,7 +54,7 @@ public class Snap extends CardGame {
 
                 }
                 if (userTime == computerTime) {
-                    System.out.println("This is a draw ... the odds of this happening are lower than 0.25% .... crazy!");
+                    System.out.println(Phrases.COMPUTER_DRAW.getPhrases());
                 }
 
 
@@ -88,7 +92,7 @@ public class Snap extends CardGame {
                 if (userTime < computerTime) {
                     System.out.println("SNAP!");
                     System.out.println(" ");
-                    System.out.println("Player 1 wins!");
+                    System.out.println(playerOneName + " wins!");
                     player1Cards.addAll(winnings);
                     winnings.removeAll(winnings);
                 }
@@ -100,7 +104,7 @@ public class Snap extends CardGame {
                     winnings.removeAll(winnings);
                 }
                 if (userTime == computerTime) {
-                    System.out.println("This is a draw ... the odds of this happening are lower than 0.25% .... crazy!");
+                    System.out.println(Phrases.COMPUTER_DRAW.getPhrases());
                 }
             }
 
@@ -109,7 +113,7 @@ public class Snap extends CardGame {
                 System.out.println("It's a draw");
 
             } else if (player2Cards.size() == 0) {
-                System.out.println("Congratulations Player 1 you are the winner");
+                System.out.println("Congratulations " + playerOneName + " you are the winner");
             } else if (player1Cards.size() == 0) {
                 System.out.println("Computer is the winner");
             }
