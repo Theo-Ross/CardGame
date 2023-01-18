@@ -135,6 +135,8 @@ public class TwoPlayerSnap extends CardGame {
                     System.out.println("Chance for " + playerOneName + " to win!");
                     player1Steal = true;
 
+                    // test
+
                 }
                 if (playerTwoInput.equalsIgnoreCase("snap") && playerTwoTime > cardGame.getTimer()) {
                     System.out.println(Phrases.WRONG_SLOW.getPhrases());

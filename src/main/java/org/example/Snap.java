@@ -28,13 +28,13 @@ public class Snap extends CardGame {
 
             System.out.println(playerOneName + "'s go");
             scanner.nextLine();
-            System.out.println(playerOneName+"'s card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());
+            System.out.println(playerOneName + "'s card is the " + player1Card.getSymbol() + " of " + player1Card.getSuit());
             if (previousCardValue == player1Card.getValue()) {
                 long startCount = System.currentTimeMillis();
                 scanner.nextLine();
                 long endCount = System.currentTimeMillis();
                 long userTime = endCount - startCount;
-                long computerTime = RANDOM.nextInt( (int) cardGame.getTimer() );
+                long computerTime = RANDOM.nextInt((int) cardGame.getTimer());
                 System.out.println(computerTime);
                 System.out.println(userTime);
                 if (userTime < computerTime) {
